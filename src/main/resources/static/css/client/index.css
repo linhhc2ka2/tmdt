@@ -32,10 +32,17 @@ body {
 }
 
 button,
-input,
-[tabIndex] {
-    border: none;
-    outline: none;
+input[type='email'],
+input[type='file'],
+input[type='number'],
+input[type='password'],
+input[type='search'],
+input[type='submit'],
+input[type='tel'],
+input[type='text'],
+textarea {
+    -webkit-appearance: none;
+    -moz-appearance: none;
 }
 
 a {
@@ -44,7 +51,6 @@ a {
 }
 
 a:hover {
-    fill: var(--hover);
     color: var(--hover);
 }
 

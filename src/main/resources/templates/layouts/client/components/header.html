@@ -1,0 +1,44 @@
+<div class="header">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 d-flex align-items-center">
+                <a th:href="@{/homepage}" class="fw_700 fs-2 text-white logo_index">TMDT</a>
+                <form action="" method="post" class="input-group p-0 search_form">
+                    <input
+                        type="text"
+                        name="querySearch"
+                        class="position-relative m-0 search_form_input"
+                        placeholder="Tìm sản phẩm"
+                        aria-label="Tìm sản phẩm"
+                        aria-describedby="search_form"
+                    />
+                    <button class="position-absolute p-0 search_form_button" id="search_form">
+                        <img ng:src="/images/client/icons/{{img}}" alt="" width="44" height="44" />
+                    </button>
+                    <p class="position-absolute m-0 search_form_suggest"><a href="#">Dien thoai - Laptop</a></p>
+                </form>
+                <a th:href="@{/}" class="text_icon icon_phone">
+                    Hotline
+                    <span class="fw_700 d-block">0942859320</span>
+                </a>
+                <div class="account_header position-relative">
+                    <a th:href="@{/}" class="text_icon icon_account">
+                        Tài khoản
+                        <span class="fw_700 d-block">Hello, Khách</span>
+                    </a>
+                    <ul class="position-absolute p-0">
+                        <li><a th:href="@{/url}">Đăng nhập</a></li>
+                        <li><a th:href="@{/url}">Đăng ký</a></li>
+                        <li><a th:href="@{/url}">Yêu thích ̣(0)</a></li>
+                        <li><a th:href="@{/url}">Đã xem(0)</a></li>
+                    </ul>
+                </div>
+                <a th:href="@{/}" class="position-relative text_icon cart_header icon_cart">
+                    Giỏ hàng
+                    <span class="fw_700 d-block">Thanh toán</span>
+                    <span class="d-block position-absolute text-center count_items_cart">0</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

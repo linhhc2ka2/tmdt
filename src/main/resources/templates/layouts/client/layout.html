@@ -20,17 +20,17 @@
         <link rel="stylesheet" th:href="@{/lib/bootstrap.min.css}" />
 
         <!-- CSS -->
-        <link rel="stylesheet" th:href="@{/css/layoutDefault.css}" />
-        <link rel="stylesheet" th:href="@{/css/header.css}" />
+        <link rel="stylesheet" th:href="@{/css/client/index.css}" />
+        <link rel="stylesheet" th:href="@{/css/client/header.css}" />
         <link rel="stylesheet" th:href="${css}" />
     </head>
-    <body>
+    <body ng-app="app-client" ng-controller="wrapper-ctrl">
         <!-- ================================ -->
-        <div th:replace="/layouts/components/header/header"></div>
+        <div th:replace="/layouts/client/components/header"></div>
 
         <div th:replace="${section}"></div>
 
-        <div th:replace="/layouts/components/footer/footer"></div>
+        <div th:replace="/layouts/client/components/footer"></div>
         <!-- ================================ -->
 
         <!-- Angular JS -->
@@ -40,6 +40,7 @@
         <script th:src="@{/lib/bootstrap.bundle.min.js}"></script>
 
         <!-- JS -->
+        <script th:src="@{/js/client/index.js}"></script>
         <script th:src="${js}"></script>
     </body>
 </html>
