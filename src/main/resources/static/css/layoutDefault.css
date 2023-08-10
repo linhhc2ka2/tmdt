@@ -1,0 +1,90 @@
+/* == Default ============================================================================================ */
+:root {
+    font-size: 16px;
+    --main-color: #163ac7;
+    --hover: #16bcdc;
+    --text-color: #000000;
+    --price: #163ac7;
+    --hover: #16bcdc;
+    --menu: #ad0018;
+    --bgcopoun: #ffeef2;
+    --bgbestsale: #f8f8f8;
+    --bgmailchip: #ffeef2;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--text-color);
+    text-align: left;
+    background-color: #f1f3f6;
+}
+
+button,
+input,
+[tabIndex] {
+    border: none;
+    outline: none;
+}
+
+a {
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+a:hover {
+    fill: var(--hover);
+    color: var(--hover);
+}
+
+/* == Set CSS and Responsive ============================================================================================ */
+
+/* 
+    Mobile (điện thoại): Thường từ 320px đến 767px.
+    Tablet (máy tính bảng): Thường từ 768px đến 1023px.
+    Desktop (máy tính để bàn - lớn): Thường từ 1024px đến 1199px.
+    Large Desktop (máy tính để bàn - lớn hơn): 1200px trở lên.
+*/
+
+.fw_400 {
+    font-weight: 400;
+}
+
+.fw_500 {
+    font-weight: 500;
+}
+
+.fw_700 {
+    font-weight: 700;
+}
+
+/* Media query cho mobile */
+
+/* Media query cho tablet */
+@media screen and (min-width: 768px) {
+}
+
+/* Media query cho desktop */
+@media screen and (min-width: 1024px) {
+}
+
+/* Media query cho large desktop */
+@media screen and (min-width: 1200px) {
+    .px-default {
+        padding-left: 10rem;
+        padding-right: 10rem;
+    }
+}
+
+/* == Custom Css ============================================================================================ */

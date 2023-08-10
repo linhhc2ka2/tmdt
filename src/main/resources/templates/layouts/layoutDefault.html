@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:fragment="dynamic(title, section, css, js)">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title th:text="${title}">Trang chủ</title>
+
+        <!-- Font Roboto -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap"
+            rel="stylesheet"
+        />
+
+        <!-- Normalize CSS -->
+        <link rel="stylesheet" th:href="@{/lib/normalize.css}" />
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" th:href="@{/lib/bootstrap.min.css}" />
+
+        <!-- CSS -->
+        <link rel="stylesheet" th:href="@{/css/layoutDefault.css}" />
+        <link rel="stylesheet" th:href="@{/css/header.css}" />
+        <link rel="stylesheet" th:href="${css}" />
+    </head>
+    <body>
+        <!-- ================================ -->
+        <div th:replace="/layouts/components/header/header"></div>
+
+        <div th:replace="${section}"></div>
+
+        <div th:replace="/layouts/components/footer/footer"></div>
+        <!-- ================================ -->
+
+        <!-- Angular JS -->
+        <script th:src="@{/lib/angular.min.js}"></script>
+
+        <!-- Bootstrap JS -->
+        <script th:src="@{/lib/bootstrap.bundle.min.js}"></script>
+
+        <!-- JS -->
+        <script th:src="${js}"></script>
+    </body>
+</html>
