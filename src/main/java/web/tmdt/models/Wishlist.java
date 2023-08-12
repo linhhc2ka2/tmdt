@@ -1,5 +1,7 @@
 package web.tmdt.models;
 
+import java.io.Serializable;
+
 import javax.persistence.*;
 
 import lombok.*;
@@ -11,7 +13,7 @@ import lombok.*;
 @AllArgsConstructor
 @Getter
 @Setter
-public class Wishlist {
+public class Wishlist implements Serializable {
     @Id
     @Column(name = "Wishlistid")
     private Integer wishlistID;

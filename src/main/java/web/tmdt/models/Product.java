@@ -47,6 +47,19 @@ public class Product implements Serializable {
     @Column(name = "Updateat")
     private Date updateAt = new Date();
 
+    @Column(name = "Image")
+    private String image;
+
+    @ManyToOne
+    @JoinColumn(name = "Serviceid")
+    Service service;
+
+    @Column(name = "Sale")
+    private Integer sale;
+
+    @Column(name = "Sold")
+    private Integer sold;
+
     @JsonIgnore
     @OneToMany(mappedBy = "product")
     List<OrderDetail> orderDetail;

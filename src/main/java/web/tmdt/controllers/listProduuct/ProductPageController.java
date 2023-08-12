@@ -11,20 +11,10 @@ import web.tmdt.services.ProductService;
 @Controller
 @RequestMapping("/san-pham")
 public class ProductPageController {
-
-    // private final ProductService productService;
-
-    // @Autowired
-    // public ProductPageController(ProductService productService) {
-    // this.productService = productService;
-    // }
-
     @GetMapping
     public String viewProductPage(
             @RequestParam("categoryid") Integer categoryid) {
-        return "/pages/list-product/index";
+        return "/pages/client/list-product/index";
     }
-
-    // Xử lý các yêu cầu HTTP bằng cách gọi các phương thức của productService
 
 }

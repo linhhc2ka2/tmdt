@@ -6,11 +6,110 @@
     '/css/client/home/index.css', '/js/client/home/index.js')}"
 >
     <div ng-controller="home-page-ctrl">
-        <h1>Trang chu</h1>
-        <span
-            >Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae commodi eos dolorem exercitationem totam,
-            alias, similique suscipit tenetur, necessitatibus fugiat incidunt eligendi eum porro minus repellat
-            dignissimos consectetur ut culpa?</span
-        >
+        <!-- == First ========================== -->
+        <section class="container section_first">
+            <div class="row">
+                <div class="d-none d-lg-block col-lg-2 left menu_main">
+                    <div th:replace="/layouts/client/components/main-menu"></div>
+                    <div th:replace="/layouts/client/components/categories-menu"></div>
+                </div>
+                <div class="col-lg-10 right">
+                    <div class="section_slider d-flex flex-wrap">
+                        <div class="col-lg-9 col-12 px-2 slider">
+                            <div class="swiper slider_banner">
+                                <div class="swiper-wrapper">
+                                    <a
+                                        th:href="@{/homepage}"
+                                        ng-repeat="slide in listSlides"
+                                        class="swiper-slide clearfix"
+                                    >
+                                        <picture class="aspect d-block position-ralative">
+                                            <img
+                                                ng-src="/images/client/slides/{{slide.image}}"
+                                                alt="{{slide.image}}"
+                                                width="1087"
+                                                height="330"
+                                                class="position-absolute"
+                                            />
+                                        </picture>
+                                    </a>
+                                </div>
+                                <div class="swiper-pagination"></div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-12 px-2 banner">
+                            <a
+                                th:href="@{/homepage}"
+                                ng-repeat="banner in listBanners"
+                                class="d-inline-block position-relative aspect"
+                            >
+                                <img
+                                    ng-src="/images/client/banners/{{banner.image?banner.image:''}}"
+                                    alt="{{banner.image}}"
+                                    class="position-absolute"
+                                />
+                            </a>
+                        </div>
+                    </div>
+                    <div class="section_flash flashsale">
+                        <div class="title_module timer border-bottom mb-1 d-flex position-relative">
+                            <h2 class="title_h2 mb-0"><a th:href="@{/homepage}">Deal sốc mỗi ngày</a></h2>
+                            <div
+                                id="countdown"
+                                class="time_in"
+                                data-time="12/12/2023 23:59:59"
+                                data-countdown-type="hours"
+                            ></div>
+                            <a href="" class="d-none d-md-block more fw_700">Xem thêm</a>
+                        </div>
+                        <div class="slide_flash position-relative">
+                            <div class="swiper py-3 slider_flashsale">
+                                <div class="swiper-wrapper">
+                                    <div
+                                        ng-repeat="product in listProductsFlashSale | limitTo: 6"
+                                        class="swiper-slide flashsale_item"
+                                    >
+                                        <div th:replace="/layouts/client/components/product-form"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="section_service">
+                    <div class="swiper py-3 slider_coupons">
+                        <div class="swiper-wrapper">
+                            <div ng-repeat="coupon in listCoupons | limitTo:5" class="swiper-slide">
+                                <div
+                                    class="item_sv"
+                                    ng-style="{
+                                        'background-image': coupon.image == null ? 
+                                        'url(\'/images/no-image.jpg\')' : 
+                                        'url(\'/images/coupons/' + coupon.image + '\')'
+                                    }"
+                                >
+                                    <a href="">
+                                        <b class="fw_700 d-block">{{coupon.name}}</b>
+                                        <span>{{coupon.description}}</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- == Products Tab ========================== -->
+        <section class="container section_product_tab section_product_tab_1 module_product"></section>
+        <!-- == Best Seller ========================== -->
+        <section class="container section_besteller"></section>
+        <!-- == Products 1 ========================== -->
+        <section class="container section_product section_product_1"></section>
+        <!-- == Banner ========================== -->
+        <section class="container section_banner"></section>
+        <!-- == Products 2 ========================== -->
+        <section class="container section_product section_product_2"></section>
+        <!-- == Blogs ========================== -->
+        <section class="container section_blogs"></section>
     </div>
 </html>

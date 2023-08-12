@@ -1,5 +1,6 @@
 package web.tmdt.models;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.*;
@@ -15,7 +16,7 @@ import lombok.*;
 @AllArgsConstructor
 @Getter
 @Setter
-public class Category {
+public class Category implements Serializable {
     @Id
     @Column(name = "Categoryid")
     private Integer categoryId;
@@ -25,6 +26,9 @@ public class Category {
 
     @Column(name = "Description")
     private String description;
+
+    @Column(name = "Image")
+    private String image;
 
     @JsonIgnore
     @OneToMany(mappedBy = "category")

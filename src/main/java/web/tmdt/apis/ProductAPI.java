@@ -14,9 +14,8 @@ public class ProductAPI {
     @Autowired
     ProductService productService;
 
-    @GetMapping("/api/list-product")
+    @GetMapping("/api/products/all")
     public List<Product> getAllProducts() {
-
         return productService.getAll();
     }
 }

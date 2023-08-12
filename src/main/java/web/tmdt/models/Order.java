@@ -1,5 +1,6 @@
 package web.tmdt.models;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.*;
@@ -15,7 +16,7 @@ import lombok.*;
 @AllArgsConstructor
 @Getter
 @Setter
-public class Order {
+public class Order implements Serializable {
     @Id
     @Column(name = "Orderid")
     private Integer orderId;

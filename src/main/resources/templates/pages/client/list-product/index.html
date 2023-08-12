@@ -2,12 +2,13 @@
 <html
     xmlns:th="http://www.thymeleaf.org"
     xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
-    th:replace="~{/layouts/layoutDefault :: dynamic('Danh sách sản phẩm', ~{::div}, '/css/list-product/index.css', '/js/list-product/index.js')}"
+    th:replace="~{/layouts/client/layout :: dynamic('Danh sách sản phẩm', ~{::div},
+    '/css/client/list-product/index.css', '/js/client/list-product/index.js')}"
 >
     <body>
-        <div ng-app="list-product-page" ng-controller="list-product-page-ctrl">
+        <div ng-controller="list-product-page-ctrl">
             <ul>
-                <li ng-Repeat="p in products">
+                <li ng-repeat="p in products">
                     <span>{{p.name}}</span>
                 </li>
             </ul>

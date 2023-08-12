@@ -1,5 +1,6 @@
 package web.tmdt.models;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
@@ -16,7 +17,7 @@ import lombok.*;
 @AllArgsConstructor
 @Getter
 @Setter
-public class Customer {
+public class Customer implements Serializable {
     @Id
     @Column(name = "Customerid")
     private Integer customerId;

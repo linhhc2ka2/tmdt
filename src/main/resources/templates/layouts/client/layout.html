@@ -19,9 +19,18 @@
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" th:href="@{/lib/bootstrap.min.css}" />
 
+        <!-- Fontawesome -->
+        <link rel="stylesheet" th:href="@{/lib/fontawesome/css/fontawesome.css}" />
+        <link rel="stylesheet" th:href="@{/lib/fontawesome/css/brands.css}" />
+        <link rel="stylesheet" th:href="@{/lib/fontawesome/css/solid.css}" />
+
+        <!-- Swiper CSS -->
+        <link rel="stylesheet" th:href="@{/lib/swiper-bundle.min.css}" />
+
         <!-- CSS -->
         <link rel="stylesheet" th:href="@{/css/client/index.css}" />
         <link rel="stylesheet" th:href="@{/css/client/header.css}" />
+        <link rel="stylesheet" th:href="@{/css/client/footer.css}" />
         <link rel="stylesheet" th:href="${css}" />
     </head>
     <body ng-app="app-client" ng-controller="wrapper-ctrl">
@@ -38,6 +47,9 @@
 
         <!-- Bootstrap JS -->
         <script th:src="@{/lib/bootstrap.bundle.min.js}"></script>
+
+        <!-- Swiper JS -->
+        <script th:src="@{/lib/swiper-bundle.min.js}"></script>
 
         <!-- JS -->
         <script th:src="@{/js/client/index.js}"></script>

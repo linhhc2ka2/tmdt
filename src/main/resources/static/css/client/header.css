@@ -3,15 +3,6 @@
     padding: 40px 0;
 }
 
-.logo_index {
-    flex: 0 0 calc(16.666% - 1.7rem);
-    max-width: calc(16.666% - 1.7rem);
-}
-
-.search_form {
-    width: calc(83.333333% - 485px);
-}
-
 .search_form_input {
     width: 100%;
     height: 52px;
@@ -76,8 +67,9 @@
 }
 
 .text_icon {
+    min-height: 40px;
     padding-left: 44px;
-    margin-left: 34px;
+    margin-left: 8px;
     background: url('/images/client/icons/user_icon.svg') left center no-repeat;
     color: #fff;
 }
@@ -93,7 +85,6 @@
 
 .icon_cart {
     background-image: url('/images/client/icons/cart_icon.svg');
-    margin-left: auto;
 }
 
 .text_icon.icon_phone > span {
@@ -102,6 +93,7 @@
 }
 
 .account_header > ul {
+    min-width: 100px;
     top: 120%;
     right: 0;
     background: #fff;
@@ -135,4 +127,72 @@
     border: 2px var(--main-color) solid;
     border-radius: 20px !important;
     overflow: hidden;
+}
+
+/* Media query cho mobile */
+.logo_index {
+    flex: 0 0 calc(100% - 175px);
+    max-width: calc(100% - 175px);
+    margin-right: 15px;
+    justify-content: center;
+}
+
+.search_form {
+    order: 1;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.text_icon_mobile {
+    background-size: 21px;
+}
+
+.menu_bar {
+    width: 40px;
+    height: 40px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--main-color);
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    position: fixed;
+    top: 30%;
+    left: 0;
+}
+
+.menu_bar:hover {
+    cursor: pointer;
+    background-color: var(--hover);
+}
+
+/* Media query cho tablet */
+@media screen and (min-width: 768px) {
+    .logo_index {
+        flex: 0 0 171px;
+        max-width: 171px;
+        margin-left: 15px;
+    }
+
+    .text_icon {
+        margin-left: 34px;
+    }
+
+    .icon_cart {
+        margin-left: auto;
+    }
+}
+
+/* Media query cho desktop */
+@media screen and (min-width: 1024px) {
+    .logo_index {
+        flex: 0 0 calc(16.666% - 1.7rem);
+        max-width: calc(16.666% - 1.7rem);
+    }
+
+    .search_form {
+        order: 0;
+        width: calc(83.333333% - 485px);
+    }
 }

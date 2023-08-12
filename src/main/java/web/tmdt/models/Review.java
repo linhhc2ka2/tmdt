@@ -1,5 +1,6 @@
 package web.tmdt.models;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.*;
@@ -13,7 +14,7 @@ import lombok.*;
 @AllArgsConstructor
 @Getter
 @Setter
-public class Review {
+public class Review implements Serializable {
     @Id
     @Column(name = "Reviewid")
     private Integer reviewID;
