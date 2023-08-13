@@ -1,6 +1,7 @@
 package web.tmdt.apis;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -18,4 +19,10 @@ public class ProductAPI {
     public List<Product> getAllProducts() {
         return productService.getAll();
     }
+
+    @GetMapping("/api/products/{categoryid}")
+    public List<Product> getAllProductsByCategoryId(@PathVariable("categoryid") Integer categoryid) {
+        return productService.getAllProductsByCategoryId(categoryid);
+    }
+
 }

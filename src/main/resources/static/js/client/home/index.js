@@ -36,6 +36,15 @@ app.controller('home-page-ctrl', function ($scope, $http) {
         $http.get(`/api/coupons/all`).then((result) => ($scope.listCoupons = result.data));
     };
     $scope.getAllCoupons();
+
+    // Load products outstanding by categoryId
+    $scope.listProductsOutstanding = [];
+    $scope.handleGetIdTab = function (categoryId) {
+        $http
+            .get(`/api/products/${categoryId ? categoryId : 1}`)
+            .then((result) => ($scope.listProductsOutstanding = result.data));
+    };
+    $scope.handleGetIdTab();
 });
 
 // Code JS
@@ -104,6 +113,25 @@ let swiperCoupons = new Swiper('.slider_coupons', {
         1024: {
             slidesPerView: 5,
             spaceBetween: 20,
+        },
+    },
+});
+
+let swiperOutstanding = new Swiper('.slider_outstandings', {
+    slidesPerView: 5,
+    spaceBetween: 10,
+    breakpoints: {
+        350: {
+            slidesPerView: 1.5,
+            spaceBetween: 10,
+        },
+        768: {
+            slidesPerView: 3,
+            spaceBetween: 10,
+        },
+        1024: {
+            slidesPerView: 5,
+            spaceBetween: 10,
         },
     },
 });

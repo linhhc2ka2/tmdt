@@ -25,7 +25,8 @@
         </h3>
         <div ng-if="product.quantityInStock < 100" class="price_box position-relative">Liên hệ</div>
         <div ng-if="product.quantityInStock >= 100" class="price_box position-relative">
-            <div class="price">{{product.price - product.price*product.sale/100 | currency: "" : 0 }}đ</div>
+            <div ng-if="product.price<=0" class="price">Liên hệ</div>
+            <div ng-if="product.price>0" class="price">{{product.price - product.price*product.sale/100 | currency: "" : 0 }}đ</div>
             <div ng-if="product.sale" class="compare_price">-{{product.sale}}%</div>
         </div>
         <div class="flashsale_bottom position-absolute">

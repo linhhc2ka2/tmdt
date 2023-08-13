@@ -105,6 +105,11 @@ img {
     margin-left: auto;
 }
 
+.title_module .more {
+    border-radius: 8px;
+    overflow: hidden;
+}
+
 .title_module .more:hover {
     background: var(--hover);
 }

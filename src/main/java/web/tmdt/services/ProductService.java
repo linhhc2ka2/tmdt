@@ -17,9 +17,14 @@ public class ProductService {
         this.productRepository = productRepository;
     }
 
-    // Read
+    // Load all products
     public List<Product> getAll() {
         return this.productRepository.findAll();
+    }
+
+    // Load products by categoryid
+    public List<Product> getAllProductsByCategoryId(Integer categoryid) {
+        return this.productRepository.findAllByCategoryId(categoryid);
     }
 
 }
