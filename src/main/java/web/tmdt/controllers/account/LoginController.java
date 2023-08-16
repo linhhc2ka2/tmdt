@@ -46,7 +46,7 @@ public class LoginController {
 
             return "redirect:/homepage";
         } else {
-            model.addAttribute("error", "Đăng nhập thất bại!");
+            model.addAttribute("error", "Đăng nhập thất bại *");
             return "pages/login/index";
         }
     }

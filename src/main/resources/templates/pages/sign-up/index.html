@@ -19,8 +19,18 @@
                                         ng-class="{'d-none': showRecoverPasswordForm==true}"
                                     >
                                         <h1 class="title_block_page">{{titlePage}}</h1>
-                                        <span th:text="${message}"></span>
-                                        <span th:text="${error}"></span>
+                                        <label
+                                            th:if="${message}"
+                                            th:classappend="${message} ? 'd-block' : 'd-none'"
+                                            class="message_info"
+                                            th:text="${message}"
+                                        ></label>
+                                        <label
+                                            th:if="${error}"
+                                            th:classappend="${error} ? 'd-block' : 'd-none'"
+                                            class="message_error"
+                                            th:text="${error}"
+                                        ></label>
                                         <form
                                             th:action="@{/account/sign-up}"
                                             th:object="${userNew}"

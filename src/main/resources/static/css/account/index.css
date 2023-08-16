@@ -10,6 +10,7 @@ h1,
 
 .page_content_account .d_group {
     display: flex;
+    flex-direction: column;
     border: solid 1px var(--main-color);
     min-height: 460px;
     border-radius: 10px;
@@ -18,8 +19,9 @@ h1,
 
 .page_content_account .left_col {
     background: #fff;
-    width: calc(100% - 290px);
-    padding: 30px;
+    width: 100%;
+    order: 1;
+    padding: 20px;
 }
 
 .page_content_account .left_col h1,
@@ -108,8 +110,9 @@ h1,
 }
 
 .page_content_account .right_col {
-    width: 290px;
-    padding: 30px;
+    width: 100%;
+    padding: 20px;
+    order: 2;
     background: var(--main-color);
 }
 
@@ -170,4 +173,46 @@ h1,
     background: var(--hover);
     border-color: var(--hover);
     color: #fff;
+}
+
+.message_info {
+    font-size: 12px;
+    font-style: italic;
+    color: #fff;
+
+    background-color: #16dc27;
+    border: 1px solid #16dc27;
+    border-radius: 4px;
+    padding: 4px 10px;
+    margin-bottom: 20px;
+    text-align: start;
+}
+
+.message_error {
+    font-size: 12px;
+    font-style: italic;
+    color: #fff;
+    background-color: #f00;
+    border: 1px solid #f00;
+    border-radius: 4px;
+    padding: 4px 10px;
+    margin-bottom: 20px;
+    text-align: start;
+}
+
+/* Media query cho tablet */
+@media screen and (min-width: 768px) {
+    .page_content_account .d_group {
+        flex-direction: row;
+    }
+
+    .page_content_account .left_col {
+        width: calc(100% - 290px);
+        padding: 30px;
+    }
+
+    .page_content_account .right_col {
+        width: 290px;
+        padding: 30px;
+    }
 }

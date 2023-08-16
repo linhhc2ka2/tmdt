@@ -27,18 +27,30 @@ public class SignUpController {
     @PostMapping(value = "/sign-up")
     public String postMethodName(Model model, @ModelAttribute Optional<User> user,
             @RequestParam("confirmPassword") String confirmPassword) {
-        model.addAttribute("userNew", new User());
+        User user2 = userRepository.findByUserEmail(user.get().getEmail());
 
         if (user.isPresent()) {
-            if (user.get().getPassword().equals(confirmPassword)) {
-                model.addAttribute("message", "Thanh cong");
-                userRepository.save(user.get());
+            if (user2 == null || !user2.getEmail().equals(user.get().getEmail())) {
+                if (user.get().getPassword().equals(confirmPassword)) {
+                    if (user.get().getPassword().length() >= 3) {
+                        userRepository.save(user.get());
+                        model.addAttribute("message", "Đăng ký tài khoản thành công!");
+                        model.addAttribute("userNew", new User());
+                    } else {
+                        model.addAttribute("error", "Mật khẩu phải từ 3 ký tự trở lên *");
+                        model.addAttribute("userNew", user);
+                    }
+                } else {
+                    model.addAttribute("error", "Mật khẩu của bạn chưa trùng khớp *");
+                    model.addAttribute("userNew", user);
+                }
             } else {
-                model.addAttribute("error", "Không trùng mật khẩu và mật khẩu xác nhận!");
+                model.addAttribute("error", "Email đã được đăng ký *");
+                model.addAttribute("userNew", user);
             }
-
         } else {
-            model.addAttribute("error", "Chua dien");
+            model.addAttribute("error", "Không nên bỏ trống *");
+            model.addAttribute("userNew", user);
         }
 
         return "pages/sign-up/index";

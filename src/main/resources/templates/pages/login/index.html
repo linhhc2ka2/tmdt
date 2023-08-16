@@ -19,8 +19,8 @@
                                         ng-class="{'d-none': showRecoverPasswordForm==true}"
                                     >
                                         <h1 class="title_block_page">{{titlePage}}</h1>
-                                        <span th:text="${message}"></span>
-                                        <span th:text="${error}"></span>
+                                        <label th:if="${message}" class="message_info" th:text="${message}"></label>
+                                        <label th:if="${error}" class="message_error" th:text="${error}"></label>
                                         <form
                                             th:object="${user}"
                                             th:action="@{/account/login}"
