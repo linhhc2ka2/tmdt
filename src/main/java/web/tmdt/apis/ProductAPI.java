@@ -25,4 +25,9 @@ public class ProductAPI {
         return productService.getAllProductsByCategoryId(categoryid);
     }
 
+    @GetMapping("/api/products/flash-sale")
+    public List<Product> getAllProductsFlashsale() {
+        return productService.getAllProductsFlashsale();
+    }
+
 }

@@ -14,12 +14,23 @@ app.controller('home-page-ctrl', function ($scope, $http) {
     };
     $scope.getAllBanners();
 
-    // Load 5 products flash sale
-    $scope.listProductsFlashSale = [];
-    $scope.getProductsFlashSale = function () {
-        $http.get(`/api/products/all`).then((result) => ($scope.listProductsFlashSale = result.data));
+    // Load all products - seller
+    $scope.listProducts = [];
+    $scope.listProductsSeller = [];
+    $scope.getAllProducts = function () {
+        $http.get(`/api/products/all`).then((result) => {
+            $scope.listProducts = result.data;
+            $scope.listProductsSeller = result.data.slice().sort((a, b) => b.sold - a.sold);
+        });
     };
-    $scope.getProductsFlashSale();
+    $scope.getAllProducts();
+
+    // Load all products flashsale
+    $scope.listProductsFlashsale = [];
+    $scope.getAllProductsFlashsale = function () {
+        $http.get(`/api/products/flash-sale`).then((result) => ($scope.listProductsFlashsale = result.data));
+    };
+    $scope.getAllProductsFlashsale();
 
     // Handle action button card
     $scope.handleAction = function (key) {
@@ -45,6 +56,13 @@ app.controller('home-page-ctrl', function ($scope, $http) {
             .then((result) => ($scope.listProductsOutstanding = result.data));
     };
     $scope.handleGetIdTab();
+
+    //Load all news
+    $scope.listNews = [];
+    $scope.getAllNews = function () {
+        $http.get(`/api/news/all`).then((result) => ($scope.listNews = result.data));
+    };
+    $scope.getAllNews();
 });
 
 // Code JS
@@ -131,6 +149,25 @@ let swiperOutstanding = new Swiper('.slider_outstandings', {
         },
         1024: {
             slidesPerView: 5,
+            spaceBetween: 10,
+        },
+    },
+});
+
+let swiperSeller = new Swiper('.slider_seller', {
+    slidesPerView: 6,
+    spaceBetween: 10,
+    breakpoints: {
+        350: {
+            slidesPerView: 1.5,
+            spaceBetween: 10,
+        },
+        768: {
+            slidesPerView: 3,
+            spaceBetween: 10,
+        },
+        1024: {
+            slidesPerView: 6,
             spaceBetween: 10,
         },
     },

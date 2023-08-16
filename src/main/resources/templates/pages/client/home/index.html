@@ -66,7 +66,7 @@
                             <div class="swiper py-3 slider_flashsale">
                                 <div class="swiper-wrapper">
                                     <div
-                                        ng-repeat="product in listProductsFlashSale | limitTo: 6"
+                                        ng-repeat="product in listProductsFlashsale | limitTo: 6"
                                         class="swiper-slide flashsale_item"
                                     >
                                         <div th:replace="/layouts/client/components/product-form"></div>
@@ -151,14 +151,45 @@
             </div>
         </section>
         <!-- == Best Seller ========================== -->
-        <section class="container section_besteller"></section>
-        <!-- == Products 1 ========================== -->
-        <section class="container section_product section_product_1"></section>
-        <!-- == Banner ========================== -->
-        <section class="container section_banner"></section>
-        <!-- == Products 2 ========================== -->
-        <section class="container section_product section_product_2"></section>
+        <section class="container section_besteller">
+            <div class="title_module d-flex border-bottom mb-2">
+                <h2 class="title_h2 mb-0"><a th:href="@{/homepage}">Sản phẩm bán chạy</a></h2>
+                <a href="" class="d-none d-md-block more fw_700">Xem thêm</a>
+            </div>
+            <div class="slide_seller">
+                <div class="swiper slider_seller">
+                    <div class="swiper-wrapper">
+                        <div ng-repeat="product in listProductsSeller | limitTo: 6" class="swiper-slide">
+                            <div th:replace="/layouts/client/components/product-form"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
         <!-- == Blogs ========================== -->
-        <section class="container section_blogs"></section>
+        <section class="container section_blogs">
+            <div class="d-flex flex-wrap">
+                <div class="col-lg-9 col-12 left">
+                    <div class="title_module d-flex border-bottom mb-2">
+                        <h2 class="title_h2 mb-0"><a th:href="@{/homepage}">Thông tin thị trường</a></h2>
+                    </div>
+                    <div class="row m-0 px-2">
+                        <div ng-repeat="news in listNews | limitTo: 4" class="col-xl-3 col-md-6 col-6">
+                            <div th:replace="/layouts/client/components/news-form-base"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-12 right">
+                    <div class="title_module d-flex border-bottom mb-2">
+                        <h2 class="title_h2 mb-0"><a th:href="@{/homepage}">Tin mới cập nhật</a></h2>
+                    </div>
+                    <div class="px-2">
+                        <div ng-repeat="news in listNews | limitTo: 5">
+                            <div th:replace="/layouts/client/components/news-form-list"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
 </html>

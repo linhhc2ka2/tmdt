@@ -160,6 +160,7 @@
     position: fixed;
     top: 30%;
     left: 0;
+    z-index: 9999;
 }
 
 .menu_bar:hover {

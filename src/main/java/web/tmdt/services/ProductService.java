@@ -27,4 +27,8 @@ public class ProductService {
         return this.productRepository.findAllByCategoryId(categoryid);
     }
 
+    // Load flashsale when sale > 0
+    public List<Product> getAllProductsFlashsale() {
+        return this.productRepository.findAllFlashsale();
+    }
 }

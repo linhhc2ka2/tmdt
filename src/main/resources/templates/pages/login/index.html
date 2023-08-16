@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html
+    xmlns:th="http://www.thymeleaf.org"
+    xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+    th:replace="~{/layouts/client/layout :: dynamic('Đăng nhập tài khoản', ~{::div},
+    '/css/login/index.css', '/js/login/index.js')}"
+>
+    <body>
+        <div ng-controller="login-page-ctrl">
+            <div class="bread-crumb">
+                <div class="container">
+                    <ul class="breadcrumb m-0">
+                        <li class="breadcrumb-item"><a th:href="@{/homepage}">Trang chủ</a></li>
+                        <li class="breadcrumb-item fw_700 active" aria-current="page">{{titlePage}}</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="page_content_account">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 offset-lg-2">
+                            <div class="d_group">
+                                <div class="left_col">
+                                    <div
+                                        class="group_login group_log"
+                                        ng-class="{'d-none': showRecoverPasswordForm==true}"
+                                    >
+                                        <h1 class="title_block_page">{{titlePage}}</h1>
+                                        <form
+                                            th:object="${user}"
+                                            th:action="@{/account/login}"
+                                            method="post"
+                                            class="m-0 p-0"
+                                        >
+                                            <span th:text="${message}"></span>
+                                            <span th:text="${error}"></span>
+                                            <div class="form_group m-0 p-0 border-0">
+                                                <label class="fw_700 d-inline-block">
+                                                    Email<span class="text-danger required">*</span>
+                                                </label>
+                                                <input
+                                                    type="email"
+                                                    th:field="*{email}"
+                                                    class="form_control form_control_lg"
+                                                    name="email"
+                                                    placeholder="Email"
+                                                    required
+                                                />
+                                            </div>
+                                            <div class="form_group">
+                                                <label class="fw_700 d-inline-block">
+                                                    Mật khẩu <span class="text-danger required">*</span>
+                                                </label>
+                                                <input
+                                                    type="password"
+                                                    th:field="*{password}"
+                                                    class="form_control form_control_lg"
+                                                    name="password"
+                                                    placeholder="Mật khẩu"
+                                                    required
+                                                />
+                                            </div>
+                                            <button type="submit" class="button_login">Đăng nhập</button>
+                                        </form>
+                                        <div class="block">
+                                            <p class="a_center"><span>Hoặc</span></p>
+                                        </div>
+                                        <p class="m-0">
+                                            Bạn quên mật khẩu bấm
+                                            <a href="" ng-click="handleSetStatusForm(true)" class="ms-2">vào đây</a>
+                                        </p>
+                                    </div>
+                                    <div
+                                        class="group_login group_recover"
+                                        ng-class="{'d-none': showRecoverPasswordForm==false}"
+                                    >
+                                        <h2>Quên mật khẩu</h2>
+                                        <p class="description">
+                                            Chúng tôi sẽ gửi cho bạn một email để kích hoạt việc đặt lại mật khẩu.
+                                        </p>
+                                        <div class="m-0 p-0">
+                                            <div class="form_group m-0 p-0 border-0">
+                                                <input
+                                                    type="email"
+                                                    pattern="^[_a-zA-Z0-9-]+(\.[_a-zA-Z0-9-]+)*(\+[a-zA-Z0-9-]+)?@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*{2,63}$"
+                                                    class="form_control form_control_lg"
+                                                    name="email"
+                                                    placeholder="Email"
+                                                    required
+                                                />
+                                            </div>
+                                            <button type="submit" class="button_login">Gửi yêu cầu</button>
+                                            <a href="" ng-click="handleSetStatusForm(false)" class="button_ref">Huỷ</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="right_col">
+                                    <h4>Quyền lợi với thành viên</h4>
+                                    <div>
+                                        <p>Vận chuyển siêu tốc</p>
+                                        <p>Sản phẩm đa dạng</p>
+                                        <p>Đổi trả dễ dàng</p>
+                                        <p>Tích điểm đổi quà</p>
+                                        <p>Nhiều mã coupon dành cho thành viên thường xuyên</p>
+                                    </div>
+                                    <a href="" class="button_register_default">Đăng ký</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

@@ -13,4 +13,7 @@ public interface ProductRepository extends JpaRepository<Product, Integer> {
     @Query("SELECT o FROM Product o WHERE o.category.id = ?1")
     List<Product> findAllByCategoryId(Integer categoryid);
 
+    // Load flashsale when sale > 0
+    @Query("SELECT o FROM Product o WHERE o.sale > 0")
+    List<Product> findAllFlashsale();
 }

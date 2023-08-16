@@ -1,0 +1,173 @@
+h1,
+.title-head {
+    font-size: 19px;
+    line-height: 22px;
+    font-weight: 600;
+    color: #212b25;
+    text-transform: uppercase;
+    margin-bottom: 27px;
+}
+
+.page_content_account .d_group {
+    display: flex;
+    border: solid 1px var(--main-color);
+    min-height: 460px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.page_content_account .left_col {
+    background: #fff;
+    width: calc(100% - 290px);
+    padding: 30px;
+}
+
+.page_content_account .left_col h1,
+.page_content_account .left_col h2 {
+    font-size: 18px;
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+    text-transform: unset;
+    margin-bottom: 20px;
+}
+
+.page_content_account .left_col input {
+    height: 40px;
+    line-height: 40px;
+}
+
+.form_group .form_control {
+    display: block;
+    width: 100%;
+    min-height: 40px;
+    padding: 10px 15px;
+    font-size: 14px;
+    line-height: 1.5;
+    background-color: #fff;
+    background-image: none;
+    margin-bottom: 15px;
+    border: 1px solid #eaebf3;
+    box-shadow: none;
+    border-radius: 7px;
+}
+
+.page_content_account .left_col .button_login {
+    width: 100%;
+    height: 40px;
+    background: var(--main-color);
+    color: #fff;
+    padding: 0;
+    border: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: 7px;
+}
+
+.page_content_account .left_col .button_login:hover {
+    background-color: var(--hover);
+}
+
+.block {
+    text-align: center !important;
+    margin-top: 20px !important;
+    width: 100% !important;
+    float: left !important;
+}
+
+.page_content_account .left_col .block p {
+    position: relative;
+}
+
+.page_content_account .left_col .block p::before {
+    content: '';
+    width: 100%;
+    height: 1px;
+    position: absolute;
+    left: 0;
+    top: 12px;
+    z-index: 0;
+    background: #ebebeb;
+}
+
+.page_content_account .left_col p {
+    display: block;
+    text-align: center;
+}
+
+.page_content_account .left_col .block p span {
+    position: relative;
+    z-index: 1;
+    background-color: #fff;
+    padding: 0 10px;
+}
+
+.page_content_account .left_col p a {
+    text-decoration: underline;
+    color: #007bff;
+}
+
+.page_content_account .right_col {
+    width: 290px;
+    padding: 30px;
+    background: var(--main-color);
+}
+
+.page_content_account .right_col h4 {
+    font-size: 18px;
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+    text-transform: unset;
+    color: #fff;
+}
+
+.page_content_account .right_col div {
+    margin: 40px 0 20px 0;
+}
+.page_content_account .right_col div p,
+.page_content_account .right_col div a {
+    display: block;
+    color: #fff;
+}
+
+.page_content_account .right_col .button_register_default {
+    height: 40px;
+    padding: 0 40px;
+    border: solid 1px #fff;
+    color: #fff;
+    font-weight: bold;
+    font-size: 16px;
+    text-align: center;
+    display: inline-block;
+    line-height: 38px;
+    border-radius: 4px;
+}
+
+.page_content_account .right_col .button_register_default:hover {
+    background-color: var(--hover);
+}
+
+.page_content_account .left_col .button_ref {
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    background: #fff;
+    color: var(--main-color);
+    text-align: center;
+    padding: 0;
+    outline: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: 4px;
+    border: solid 1px var(--main-color);
+    display: block;
+    margin-top: 10px;
+    float: left;
+}
+
+.page_content_account .left_col .button_ref:hover {
+    background: var(--hover);
+    border-color: var(--hover);
+    color: #fff;
+}

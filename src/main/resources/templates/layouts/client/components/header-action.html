@@ -1,17 +1,21 @@
-<a th:href="@{/}" class="text_icon icon_phone" title="Hotline">
+<a href="tel:0942859320" class="text_icon icon_phone" title="Hotline">
     Hotline
     <span class="fw_700 d-block">0942859320</span>
 </a>
 <div class="account_header position-relative">
-    <a th:href="@{/}" class="text_icon icon_account" title="Tài khoản">
+    <a th:href="@{/account/login}" class="text_icon icon_account" title="Tài khoản">
         Tài khoản
-        <span class="fw_700 d-block">Hello, Khách</span>
+        <span class="fw_700 d-block">
+            Hello,
+            <span th:text="${userNameCurrent!=null?userNameCurrent:'Khách'}"></span
+        ></span>
     </a>
     <ul class="position-absolute p-0">
-        <li><a th:href="@{/url}">Đăng nhập</a></li>
-        <li><a th:href="@{/url}">Đăng ký</a></li>
-        <li><a th:href="@{/url}">Yêu thích ̣(0)</a></li>
-        <li><a th:href="@{/url}">Đã xem(0)</a></li>
+        <li th:if="${userNameCurrent==null}"><a th:href="@{/account/login}">Đăng nhập</a></li>
+        <li th:if="${userNameCurrent==null}"><a th:href="@{/account/sign-up}">Đăng ký</a></li>
+        <li><a th:href="@{/products/list-favorite}">Yêu thích ̣(0)</a></li>
+        <li><a th:href="@{/products/list-view}">Đã xem(0)</a></li>
+        <li th:if="${userNameCurrent!=null}"><a th:href="@{/account/logout}">Đăng xuất</a></li>
     </ul>
 </div>
 <a th:href="@{/}" class="position-relative text_icon cart_header icon_cart" title="Giỏ hàng">

@@ -22,6 +22,9 @@ public class User implements Serializable {
     @Column(name = "Userid")
     private Integer userId;
 
+    @Column(name = "Email")
+    private String email;
+
     @Column(name = "Address")
     private String address;
 
@@ -47,4 +50,12 @@ public class User implements Serializable {
     @JsonIgnore
     @OneToMany(mappedBy = "user")
     List<Coupon> coupon;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "user")
+    List<News> news;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "user")
+    List<RoleUser> roleUser;
 }

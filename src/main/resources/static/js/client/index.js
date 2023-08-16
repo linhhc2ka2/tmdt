@@ -12,11 +12,15 @@ app.controller('wrapper-ctrl', function ($scope, $http) {
         $http.get(`/api/categories/all`).then((result) => ($scope.listCategories = result.data));
     };
     $scope.loadListCategories();
+
+    // Get title
+    $scope.titlePage = document.title;
 });
 
 // Code Javascript
-const buttonBackToTop = document.getElementById('backtotop');
 
+// Button back to top
+const buttonBackToTop = document.getElementById('backtotop');
 window.addEventListener('scroll', () => {
     // Lấy vị trí hiện tại của cuộn trang
     const scrollPosition = window.scrollY;

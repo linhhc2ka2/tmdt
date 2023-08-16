@@ -169,27 +169,24 @@
     width: 100%;
 }
 
-.module_product {
-}
-
 .section_besteller {
     margin-bottom: 20px;
+    background-color: #fff;
+    border-radius: 10px;
 }
 
 .section_product {
     margin-bottom: 20px;
 }
 
-.section_product_1 {
+.section_blogs > .d-flex {
+    margin-left: -10px;
+    margin-right: -10px;
 }
 
-.section_product_2 {
-}
-
-.section_banner {
-}
-
-.section_blogs {
+.section_blogs > .d-flex > .left {
+    background-color: #fff;
+    border-radius: 10px;
 }
 
 /* Media query cho tablet */
