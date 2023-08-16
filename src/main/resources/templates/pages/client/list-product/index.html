@@ -7,11 +7,79 @@
 >
     <body>
         <div ng-controller="list-product-page-ctrl">
-            <ul>
-                <li ng-repeat="p in products">
-                    <span>{{p.name}}</span>
-                </li>
-            </ul>
+            <div th:replace="/layouts/client/components/bread-crumb"></div>
+            <div class="section collection_page wrap_background">
+                <div class="container">
+                    <div class="row">
+                        <div class="dqdt_sidebar sidebar left_content col-lg-3 left">
+                            <div th:replace="/layouts/client/components/categories-menu"></div>
+                            <div class="filter_content aside_filter">
+                                <div class="module_filter">
+                                    Lọc sản phẩm <span class="d-block">Tìm kiếm dễ dàng chính xác</span>
+                                </div>
+                                <div class="filter_container">
+                                    <div class="aside_item filter_price">
+                                        <div class="aside_title">Theo mức giá</div>
+                                        <div class="aside_content content_price">
+                                            <ul>
+                                                <li class="filter_item filter_item_check_box filter_item_green">
+                                                    <span>
+                                                        <label for="filter-duoi-200-000d">
+                                                            <input type="checkbox" id="filter-duoi-200-000d" />
+                                                            Dưới 200.000đ
+                                                        </label>
+                                                    </span>
+                                                </li>
+                                                <li class="filter_item filter_item_check_box filter_item_green">
+                                                    <span>
+                                                        <label for="filter-duoi-200-000d">
+                                                            <input type="checkbox" id="filter-duoi-200-000d" />
+                                                            Từ 200.000đ - 500.000đ
+                                                        </label>
+                                                    </span>
+                                                </li>
+                                                <li class="filter_item filter_item_check_box filter_item_green">
+                                                    <span>
+                                                        <label>
+                                                            <input type="checkbox" />
+                                                            Từ 500.000đ - 1 triệu
+                                                        </label>
+                                                    </span>
+                                                </li>
+                                                <li class="filter_item filter_item_check_box filter_item_green">
+                                                    <span>
+                                                        <label>
+                                                            <input type="checkbox" />
+                                                            Từ 1 - 2 triệu
+                                                        </label>
+                                                    </span>
+                                                </li>
+                                                <li class="filter_item filter_item_check_box filter_item_green">
+                                                    <span>
+                                                        <label>
+                                                            <input type="checkbox" />
+                                                            Từ 2 - 5 triệu
+                                                        </label>
+                                                    </span>
+                                                </li>
+                                                <li class="filter_item filter_item_check_box filter_item_green">
+                                                    <span>
+                                                        <label>
+                                                            <input type="checkbox" />
+                                                            Trên 5 triệu
+                                                        </label>
+                                                    </span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="main_container collection col-lg-9 right"></div>
+                    </div>
+                </div>
+            </div>
         </div>
     </body>
 </html>

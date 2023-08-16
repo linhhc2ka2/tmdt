@@ -3,6 +3,7 @@
         <ul class="breadcrumb m-0">
             <li class="breadcrumb-item"><a th:href="@{/homepage}">Trang chủ</a></li>
             <li class="breadcrumb-item fw_700 active" aria-current="page">{{titlePage}}</li>
+            <li ng-if="valueUrl" class="breadcrumb-item fw_700 active" aria-current="page">{{valueUrl}}</li>
         </ul>
     </div>
 </div>

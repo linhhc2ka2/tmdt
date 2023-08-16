@@ -1,8 +1,9 @@
 <nav class="nav_horizontal cate_menu">
+    <div class="title border-bottom px-3 pb-2 fw_700 mb-2">Danh mục</div>
     <ul class="item_big">
         <li ng-repeat="cate in listCategories" class="nav_item">
             <a
-                href=""
+                ng-href="/list-products?key={{cate.categoryId}}&value={{cate.name}}"
                 ng-style="{
                     'background-image': cate.image == null ? 
                     'url(\'/images/no-image.jpg\')' : 

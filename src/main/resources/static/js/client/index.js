@@ -15,6 +15,10 @@ app.controller('wrapper-ctrl', function ($scope, $http) {
 
     // Get title
     $scope.titlePage = document.title;
+
+    // Get param category in url ==> list product
+    const urlSearchParams = new URLSearchParams(window.location.search);
+    $scope.valueUrl = urlSearchParams.get('value');
 });
 
 // Code Javascript

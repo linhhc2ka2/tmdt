@@ -91,6 +91,10 @@ p {
     margin-bottom: 1rem;
 }
 
+label {
+    display: inline-block !important;
+}
+
 /* == Set CSS and Responsive ============================================================================================ */
 .clearfix::after {
     display: block;
@@ -211,6 +215,13 @@ p {
 }
 
 /* Cate menu */
+.nav_horizontal.main_menu .title {
+    margin-left: -8px;
+    width: calc(100% + 16px);
+    font-size: 18px;
+    padding-top: 7px !important;
+}
+
 .nav_horizontal.cate_menu:not(.cate_menu_col1) {
     height: calc(100% - 236px);
 }

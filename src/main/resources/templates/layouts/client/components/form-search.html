@@ -10,6 +10,12 @@
         <img ng:src="/images/client/icons/search_icon.svg" alt="" width="44" height="44" />
     </button>
     <p class="position-absolute m-0 search_form_suggest">
-        <a ng-repeat="suggest in listCategories | limitTo:5" href="#" title="{{suggest.name}}"> {{suggest.name}} </a>
+        <a
+            ng-repeat="suggest in listCategories | limitTo:5"
+            ng-href="/list-products?key={{suggest.categoryId}}&value={{suggest.name}}"
+            title="{{suggest.name}}"
+        >
+            {{suggest.name}}
+        </a>
     </p>
 </form>
