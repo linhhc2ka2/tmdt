@@ -15,6 +15,7 @@ import lombok.*;
 @Setter
 public class OrderDetail implements Serializable {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Orderdetailid")
     private Integer orderDetailID;
 

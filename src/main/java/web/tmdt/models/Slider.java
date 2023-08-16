@@ -15,6 +15,7 @@ import lombok.*;
 @Setter
 public class Slider implements Serializable {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Slideid")
     private Integer bannerId;
 

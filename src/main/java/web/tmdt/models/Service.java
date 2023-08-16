@@ -18,6 +18,7 @@ import lombok.*;
 @Setter
 public class Service implements Serializable {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Serviceid")
     private Integer serviceId;
 

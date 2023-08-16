@@ -15,6 +15,7 @@ import lombok.*;
 @Setter
 public class Banner implements Serializable {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Bannerid")
     private Integer bannerId;
 

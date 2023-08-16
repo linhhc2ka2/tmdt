@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import web.tmdt.configs.SessionConfig;
 
 @Controller
-@RequestMapping("/homepage")
+@RequestMapping(value = "/homepage")
 public class HomePageController {
     @Autowired
     SessionConfig sessionConfig;

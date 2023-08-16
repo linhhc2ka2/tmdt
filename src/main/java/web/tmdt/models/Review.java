@@ -16,6 +16,7 @@ import lombok.*;
 @Setter
 public class Review implements Serializable {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Reviewid")
     private Integer reviewID;
 

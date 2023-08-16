@@ -2,11 +2,11 @@
 <html
     xmlns:th="http://www.thymeleaf.org"
     xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
-    th:replace="~{/layouts/client/layout :: dynamic('Đăng nhập tài khoản', ~{::div},
+    th:replace="~{/layouts/client/layout :: dynamic('Đăng ký tài khoản', ~{::div},
     '/css/account/index.css', '/js/account/index.js')}"
 >
     <body>
-        <div ng-controller="login-page-ctrl">
+        <div ng-controller="sign-up-page-ctrl">
             <div th:replace="/layouts/client/components/bread-crumb"></div>
             <div class="page_content_account">
                 <div class="container">
@@ -22,11 +22,50 @@
                                         <span th:text="${message}"></span>
                                         <span th:text="${error}"></span>
                                         <form
-                                            th:object="${user}"
-                                            th:action="@{/account/login}"
+                                            th:action="@{/account/sign-up}"
+                                            th:object="${userNew}"
                                             method="post"
                                             class="m-0 p-0"
                                         >
+                                            <div class="form_group m-0 p-0 border-0">
+                                                <label class="fw_700 d-inline-block">
+                                                    Họ<span class="text-danger required">*</span>
+                                                </label>
+                                                <input
+                                                    type="text"
+                                                    th:field="*{lastName}"
+                                                    class="form_control form_control_lg"
+                                                    name="lastName"
+                                                    placeholder="Họ"
+                                                    required
+                                                />
+                                            </div>
+                                            <div class="form_group m-0 p-0 border-0">
+                                                <label class="fw_700 d-inline-block">
+                                                    Tên<span class="text-danger required">*</span>
+                                                </label>
+                                                <input
+                                                    type="text"
+                                                    th:field="*{firstName}"
+                                                    class="form_control form_control_lg"
+                                                    name="firstName"
+                                                    placeholder="Tên"
+                                                    required
+                                                />
+                                            </div>
+                                            <div class="form_group m-0 p-0 border-0">
+                                                <label class="fw_700 d-inline-block">
+                                                    Số điện thoại<span class="text-danger required">*</span>
+                                                </label>
+                                                <input
+                                                    type="text"
+                                                    th:field="*{phoneNumber}"
+                                                    class="form_control form_control_lg"
+                                                    name="phoneNumber"
+                                                    placeholder="Số điện thoại"
+                                                    required
+                                                />
+                                            </div>
                                             <div class="form_group m-0 p-0 border-0">
                                                 <label class="fw_700 d-inline-block">
                                                     Email<span class="text-danger required">*</span>
@@ -53,36 +92,19 @@
                                                     required
                                                 />
                                             </div>
-                                            <button type="submit" class="button_login">Đăng nhập</button>
-                                        </form>
-                                        <div class="block">
-                                            <p class="a_center"><span>Hoặc</span></p>
-                                        </div>
-                                        <p class="m-0">
-                                            Bạn quên mật khẩu bấm
-                                            <a href="" ng-click="handleSetStatusForm(true)" class="ms-2">vào đây</a>
-                                        </p>
-                                    </div>
-                                    <div
-                                        class="group_login group_recover"
-                                        ng-class="{'d-none': showRecoverPasswordForm==false}"
-                                    >
-                                        <h2>Quên mật khẩu</h2>
-                                        <p class="description">
-                                            Chúng tôi sẽ gửi cho bạn một email chứa mật khẩu của bạn.
-                                        </p>
-                                        <form th:action="@{/account/forgot-password}" method="post" class="m-0 p-0">
-                                            <div class="form_group m-0 p-0 border-0">
+                                            <div class="form_group">
+                                                <label class="fw_700 d-inline-block">
+                                                    Xác nhận mật khẩu <span class="text-danger required">*</span>
+                                                </label>
                                                 <input
-                                                    type="email"
+                                                    type="password"
                                                     class="form_control form_control_lg"
-                                                    name="email"
-                                                    placeholder="Email"
+                                                    name="confirmPassword"
+                                                    placeholder="Xác nhận mật khẩu"
                                                     required
                                                 />
                                             </div>
-                                            <button type="submit" class="button_login">Gửi yêu cầu</button>
-                                            <a href="" ng-click="handleSetStatusForm(false)" class="button_ref">Huỷ</a>
+                                            <button type="submit" class="button_login">Đăng ký</button>
                                         </form>
                                     </div>
                                 </div>
@@ -95,7 +117,7 @@
                                         <p>Tích điểm đổi quà</p>
                                         <p>Nhiều mã coupon dành cho thành viên thường xuyên</p>
                                     </div>
-                                    <a th:href="@{/account/sign-up}" class="button_register_default">Đăng ký</a>
+                                    <a th:href="@{/account/login}" class="button_register_default">Đăng nhập</a>
                                 </div>
                             </div>
                         </div>

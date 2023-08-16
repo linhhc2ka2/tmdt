@@ -1,8 +1,7 @@
 package web.tmdt.models;
 
 import java.io.Serializable;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 import javax.persistence.*;
 
@@ -19,6 +18,7 @@ import lombok.*;
 @Setter
 public class Product implements Serializable {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Productid")
     private Integer productId;
 

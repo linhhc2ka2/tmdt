@@ -7,42 +7,34 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import web.tmdt.configs.CookieConfig;
-import web.tmdt.configs.MailConfig;
-import web.tmdt.configs.SessionConfig;
+import web.tmdt.configs.*;
 import web.tmdt.interfaces.UserRepository;
 import web.tmdt.models.User;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
-@RequestMapping("/account")
+@RequestMapping(value = "/account")
 public class LoginController {
     @Autowired
     HttpServletRequest httpServletRequest;
-
     @Autowired
     UserRepository userRepository;
-
     @Autowired
     SessionConfig sessionConfig;
-
     @Autowired
     CookieConfig cookieConfig;
-
     @Autowired
     MailConfig mailConfig;
 
-    @GetMapping("/login")
+    @GetMapping(value = "/login")
     public String viewLoginPage(Model model) {
-        User user = new User();
-        model.addAttribute("user", user);
+        model.addAttribute("user", new User());
         model.addAttribute("userNameCurrent", sessionConfig.get("userName"));
 
         return "pages/login/index";
     }
 
-    @PostMapping("/login")
+    @PostMapping(value = "/login")
     public String handleLogin(Model model, @RequestParam("email") String email,
             @RequestParam("password") String password) {
         User user = userRepository.findByUserEmail(email);
@@ -59,7 +51,7 @@ public class LoginController {
         }
     }
 
-    @RequestMapping("logout")
+    @RequestMapping(value = "/logout")
     public String handleLogout(Model model) {
         sessionConfig.invalidate();
 

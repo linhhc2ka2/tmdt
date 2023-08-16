@@ -15,6 +15,7 @@ import lombok.*;
 @Setter
 public class Wishlist implements Serializable {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Wishlistid")
     private Integer wishlistID;
 

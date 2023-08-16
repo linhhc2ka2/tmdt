@@ -15,6 +15,7 @@ import lombok.*;
 @Setter
 public class Coupon implements Serializable {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Couponid")
     private Integer couponId;
 
