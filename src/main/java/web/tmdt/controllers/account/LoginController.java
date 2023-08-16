@@ -8,9 +8,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import web.tmdt.configs.CookieConfig;
+import web.tmdt.configs.MailConfig;
 import web.tmdt.configs.SessionConfig;
 import web.tmdt.interfaces.UserRepository;
 import web.tmdt.models.User;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 @Controller
 @RequestMapping("/account")
@@ -26,6 +29,9 @@ public class LoginController {
 
     @Autowired
     CookieConfig cookieConfig;
+
+    @Autowired
+    MailConfig mailConfig;
 
     @GetMapping("/login")
     public String viewLoginPage(Model model) {
@@ -56,6 +62,23 @@ public class LoginController {
     @RequestMapping("logout")
     public String handleLogout(Model model) {
         sessionConfig.invalidate();
+
+        return "redirect:/account/login";
+    }
+
+    @PostMapping(value = "/forgot-password")
+    public String handleForgotPassword(Model model, @RequestParam("email") String email) {
+
+        User user = userRepository.findByUserEmail(email);
+
+        if (user.getEmail().equals(email)) {
+            try {
+                mailConfig.send(email, "[No-reply] Mật khẩu của bạn",
+                        "Đây là mật khẩu của bạn: " + user.getPassword());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
 
         return "redirect:/account/login";
     }
