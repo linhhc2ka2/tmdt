@@ -20,7 +20,16 @@ app.controller('home-page-ctrl', function ($scope, $http) {
     $scope.getAllProducts = function () {
         $http.get(`/api/products/all`).then((result) => {
             $scope.listProducts = result.data;
-            $scope.listProductsSeller = result.data.slice().sort((a, b) => b.sold - a.sold);
+            // Sort products sold >>
+            $scope.listProductsSeller = result.data.slice().sort(function (a, b) {
+                if (a.sold < b.sold) {
+                    return 1;
+                }
+                if (a.sold > b.sold) {
+                    return -1;
+                }
+                return 0;
+            });
         });
     };
     $scope.getAllProducts();

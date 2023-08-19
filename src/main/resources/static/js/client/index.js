@@ -1,7 +1,7 @@
 'use strict';
 
 // Code Angularjs
-const app = angular.module('app-client', []);
+const app = angular.module('app-client', ['angularUtils.directives.dirPagination']);
 
 app.controller('wrapper-ctrl', function ($scope, $http) {
     // == Header ================================================
