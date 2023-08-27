@@ -50,9 +50,6 @@ public class Product implements Serializable {
     @Column(name = "Image")
     private String image;
 
-    @Column(name = "Nameurl")
-    private String nameURL;
-
     @ManyToOne
     @JoinColumn(name = "Serviceid")
     Service service;
@@ -62,6 +59,9 @@ public class Product implements Serializable {
 
     @Column(name = "Sold")
     private Integer sold;
+
+    @Column(name = "Nameurl")
+    private String nameURL;
 
     @JsonIgnore
     @OneToMany(mappedBy = "product")
