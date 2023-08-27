@@ -17,6 +17,13 @@ public class ProductController {
     public String viewProductPage(Model model) {
         model.addAttribute("userNameCurrent", sessionConfig.get("userName"));
 
-        return "pages/client/list-product/index";
+        return "pages/client/product/list-product";
+    }
+
+    @GetMapping(value = "/product-detail")
+    public String viewProductDetailPage(Model model) {
+        model.addAttribute("userNameCurrent", sessionConfig.get("userName"));
+
+        return "pages/client/product/product-detail";
     }
 }

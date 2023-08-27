@@ -1,5 +1,5 @@
 // Code AngularJS
-app.controller('home-page-ctrl', function ($scope, $http) {
+app.controller('home-page-ctrl', function ($scope, $http, shareService) {
     // Load all slides
     $scope.listSlides = [];
     $scope.getAllSlides = function () {
@@ -15,13 +15,13 @@ app.controller('home-page-ctrl', function ($scope, $http) {
     $scope.getAllBanners();
 
     // Load all products - seller
-    $scope.listProducts = [];
     $scope.listProductsSeller = [];
     $scope.getAllProducts = function () {
         $http.get(`/api/products/all`).then((result) => {
-            $scope.listProducts = result.data;
+            const newResult = shareService.enCodeURI(result.data);
+
             // Sort products sold >>
-            $scope.listProductsSeller = result.data.slice().sort(function (a, b) {
+            $scope.listProductsSeller = newResult.slice().sort(function (a, b) {
                 if (a.sold < b.sold) {
                     return 1;
                 }
@@ -37,7 +37,10 @@ app.controller('home-page-ctrl', function ($scope, $http) {
     // Load all products flashsale
     $scope.listProductsFlashsale = [];
     $scope.getAllProductsFlashsale = function () {
-        $http.get(`/api/products/flash-sale`).then((result) => ($scope.listProductsFlashsale = result.data));
+        $http.get(`/api/products/flash-sale`).then((result) => {
+            const newResult = shareService.enCodeURI(result.data);
+            $scope.listProductsFlashsale = newResult;
+        });
     };
     $scope.getAllProductsFlashsale();
 
@@ -60,9 +63,10 @@ app.controller('home-page-ctrl', function ($scope, $http) {
     // Load products outstanding by categoryId
     $scope.listProductsOutstanding = [];
     $scope.handleGetIdTab = function (categoryId) {
-        $http
-            .get(`/api/products/${categoryId ? categoryId : 1}`)
-            .then((result) => ($scope.listProductsOutstanding = result.data));
+        $http.get(`/api/products/${categoryId ? categoryId : 1}`).then((result) => {
+            const newResult = shareService.enCodeURI(result.data);
+            $scope.listProductsOutstanding = newResult;
+        });
     };
     $scope.handleGetIdTab();
 

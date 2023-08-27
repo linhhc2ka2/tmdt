@@ -50,6 +50,9 @@ public class Product implements Serializable {
     @Column(name = "Image")
     private String image;
 
+    @Column(name = "Nameurl")
+    private String nameURL;
+
     @ManyToOne
     @JoinColumn(name = "Serviceid")
     Service service;

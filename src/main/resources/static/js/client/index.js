@@ -21,6 +21,17 @@ app.controller('wrapper-ctrl', function ($scope, $http) {
     $scope.valueUrl = urlSearchParams.get('value');
 });
 
+app.service('shareService', function () {
+    this.enCodeURI = function (array) {
+        const newData = [];
+        array.map((data) => {
+            data.nameURL = encodeURIComponent(data.name);
+            newData.push(data);
+        });
+        return newData;
+    };
+});
+
 // Code Javascript
 
 // Button back to top

@@ -42,8 +42,10 @@
     padding: 5px 10px;
 }
 
-.sort_cate_left ul li.active a {
+.sort_cate_left ul li.active a,
+.sort_cate_left ul li:hover a {
+    cursor: pointer;
+    color: #fff !important;
     background: var(--main-color);
     border-color: var(--main-color);
-    color: #fff;
 }

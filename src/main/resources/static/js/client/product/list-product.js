@@ -1,19 +1,21 @@
-app.controller('list-product-page-ctrl', function ($scope, $http) {
+app.controller('list-product-page-ctrl', function ($scope, $http, shareService) {
     // Get param category in url ==> list product
     const urlSearchParams = new URLSearchParams(window.location.search);
     $scope.keyUrl = urlSearchParams.get('key');
 
     // Load list products default
     $scope.listProducts = [];
-    $scope.getAllProducts = function () {
-        $http.get(`/api/products/` + $scope.keyUrl).then((result) => {
-            $scope.listProducts = result.data;
+    $scope.getAllProducts = function (key) {
+        $http.get(`/api/products/` + key).then((result) => {
+            const newResult = shareService.enCodeURI(result.data);
+            $scope.listProducts = newResult;
         });
     };
 
-    $scope.getAllProducts();
+    $scope.getAllProducts($scope.keyUrl);
 
     // Sort prodcts
+    $scope.idSort = '';
     function sortListProducts(keySort, listProducts) {
         switch (keySort) {
             case 'alpha_desc':
@@ -86,15 +88,15 @@ app.controller('list-product-page-ctrl', function ($scope, $http) {
             default:
                 break;
         }
+
         return listProducts;
     }
 
     $scope.sortBy = function (keySort) {
         let newListProducts = sortListProducts(keySort, $scope.listProducts);
+        $scope.idSort = keySort;
         if (keySort === '') {
-            $http.get(`/api/products/` + $scope.keyUrl).then((result) => {
-                $scope.listProducts = result.data;
-            });
+            $scope.listProducts = $scope.getAllProducts($scope.keyUrl);
         } else {
             $scope.listProducts = newListProducts;
         }
@@ -188,9 +190,7 @@ app.controller('list-product-page-ctrl', function ($scope, $http) {
             ($scope.clickCheckbox5 === false && keyFilter === 'filter-tu-2tr-5tr') ||
             ($scope.clickCheckbox6 === false && keyFilter === 'filter-tren-5tr')
         ) {
-            $http.get(`/api/products/` + $scope.keyUrl).then((result) => {
-                $scope.listProducts = result.data;
-            });
+            $scope.listProducts = $scope.getAllProducts($scope.keyUrl);
         } else {
             $scope.listProducts = newlistProducts;
         }
