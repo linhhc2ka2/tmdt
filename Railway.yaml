@@ -1,0 +1,5 @@
+name: my-thymeleaf-app
+env: jvm
+commands:
+    - ./mvnw clean install
+    - ./mvnw spring-boot:run
