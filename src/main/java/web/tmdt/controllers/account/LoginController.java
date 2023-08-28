@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.*;
 import web.tmdt.configs.*;
 import web.tmdt.interfaces.UserRepository;
 import web.tmdt.models.User;
-import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping(value = "/account")
