@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html
+    xmlns:th="http://www.thymeleaf.org"
+    xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+    th:replace="~{/layouts/client/layout :: dynamic('Danh sách sản phẩm', ~{::div},
+    '/css/client/product/list-product.css', '/js/client/product/list-product.js')}"
+>
+    <body>
+        <div ng-controller="list-product-page-ctrl">
+            <div th:replace="/layouts/client/components/bread-crumb"></div>
+            <div class="section collection_page wrap_background">
+                <div class="container">
+                    <div class="row">
+                        <div class="dqdt_sidebar sidebar left_content col-lg-3 left">
+                            <div th:replace="/layouts/client/components/categories-menu"></div>
+                            <div th:replace="/layouts/client/components/filter-price"></div>
+                        </div>
+                        <div class="main_container collection col-lg-9 right">
+                            <div class="title_module p-0 mb-3">
+                                <h1>{{valueUrl}}</h1>
+                            </div>
+                            <div class="category_products products">
+                                <div class="sort_cate_left d-flex align-items-center bg-white mb-4 p-3">
+                                    <div class="sort_cate d-flex align-items-center position-relative">
+                                        <span class="sort_title me-2">Sắp xếp: </span>
+                                        <ul>
+                                            <li class="btn_quick_sort sort_default" ng-class="{'active': idSort == ''}">
+                                                <a ng-click="sortBy('')">Mặc định</a>
+                                            </li>
+                                            <li
+                                                class="btn_quick_sort alpha_desc"
+                                                ng-class="{'active': idSort == 'alpha_desc'}"
+                                            >
+                                                <a ng-click="sortBy('alpha_desc')">Tên A-Z</a>
+                                            </li>
+                                            <li
+                                                class="btn_quick_sort alpha_asc"
+                                                ng-class="{'active': idSort == 'alpha_asc'}"
+                                            >
+                                                <a ng-click="sortBy('alpha_asc')">Tên Z-A</a>
+                                            </li>
+                                            <li
+                                                class="btn_quick_sort price_desc"
+                                                ng-class="{'active': idSort == 'price_desc'}"
+                                            >
+                                                <a ng-click="sortBy('price_desc')">Giá tăng dần</a>
+                                            </li>
+                                            <li
+                                                class="btn_quick_sort price_asc"
+                                                ng-class="{'active': idSort == 'price_asc'}"
+                                            >
+                                                <a ng-click="sortBy('price_asc')">Giá giảm dần</a>
+                                            </li>
+                                            <li
+                                                class="btn_quick_sort create_desc"
+                                                ng-class="{'active': idSort == 'create_desc'}"
+                                            >
+                                                <a ng-click="sortBy('create_desc')">Mới nhất</a>
+                                            </li>
+                                            <li
+                                                class="btn_quick_sort create_asc"
+                                                ng-class="{'active': idSort == 'create_asc'}"
+                                            >
+                                                <a ng-click="sortBy('create_asc')">Cũ nhất</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <span class="col1_count">{{listProducts.length}} sản phẩm</span>
+                                </div>
+                                <div class="products_view products_view_grid collection_reponsive">
+                                    <div class="row">
+                                        <div ng-if="listProducts.length==0" class="alert alert-warning" role="alert">
+                                            Sản phẩm đang được cập nhật.
+                                        </div>
+                                        <div
+                                            dir-paginate="product in listProducts | itemsPerPage: 10"
+                                            class="col-md-3 col-6 product_col mb-4"
+                                        >
+                                            <div th:replace="/layouts/client/components/product-form"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="pagenav">
+                                    <dir-pagination-controls></dir-pagination-controls>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html
+    xmlns:th="http://www.thymeleaf.org"
+    xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+    th:replace="~{/layouts/client/layout :: dynamic('Thông tin sản phẩm', ~{::div},
+    '/css/client/product/product-detail.css', '/js/client/product/product-detail.js')}"
+>
+    <body>
+        <div ng-controller="product-detail-page-ctrl">
+            <div th:replace="/layouts/client/components/bread-crumb"></div>
+        </div>
+    </body>
+</html>

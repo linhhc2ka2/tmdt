@@ -1,0 +1,39 @@
+<div class="header">
+    <div class="container">
+        <!-- == Desktop and Tablet =================================== -->
+        <div class="d-md-flex d-none flex-wrap align-items-center m-0">
+            <div th:replace="/layouts/client/components/logo"></div>
+            <div th:replace="/layouts/client/components/form-search"></div>
+            <div th:replace="/layouts/client/components/header-action"></div>
+        </div>
+
+        <!-- == Mobile =================================== -->
+        <div class="d-md-none d-flex flex-wrap align-items-center m-0">
+            <div th:replace="/layouts/client/components/logo"></div>
+            <div th:replace="/layouts/client/components/form-search"></div>
+            <div th:replace="/layouts/client/components/header-action-mobile"></div>
+        </div>
+
+        <!-- == Menu Bars =================================== -->
+        <div
+            class="d-flex d-lg-none menu_bar"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasMenuBars"
+            aria-controls="offcanvasMenuBars"
+        >
+            <i class="fa-solid fa-sliders"></i>
+        </div>
+
+        <div
+            class="offcanvas offcanvas-end w-75"
+            tabindex="-1"
+            id="offcanvasMenuBars"
+            aria-labelledby="offcanvasMenuBarsLabel"
+        >
+            <div class="offcanvas-body">
+                <div th:replace="/layouts/client/components/main-menu"></div>
+                <div th:replace="/layouts/client/components/categories-menu"></div>
+            </div>
+        </div>
+    </div>
+</div>

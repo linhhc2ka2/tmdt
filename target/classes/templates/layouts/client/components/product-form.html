@@ -1,0 +1,40 @@
+<div class="item_product_main">
+    <div class="image_thumb">
+        <span class="flag_label">
+            <span ng-if="product.sale" class="label_sale">Sale</span>
+            <span ng-if="product.service.name" class="label_fea">{{product.service.name}}</span>
+        </span>
+        <a ng-href="/list-products/product-detail?productid={{product.productId}}&value={{product.nameURL}}" class="position-relative d-block aspect">
+            <img
+                ng-src="/images/products/{{product.image?product.image:'no-image.jpg'}}"
+                alt="{{product.image}}"
+                width="199"
+                height="199"
+                class="position-absolute"
+            />
+        </a>
+        <div class="action_cart">
+            <button ng-click="handleAction(product.quantityInStock < 500 ? 'Lựa chọn':'Cho vào giỏ')" class="btn_cart">
+                {{product.quantityInStock < 500 ? 'Lựa chọn':'Cho vào giỏ'}}
+            </button>
+        </div>
+    </div>
+    <div class="info_product">
+        <h3 class="product_name text_2_line">
+            <a href="">{{product.name}}</a>
+        </h3>
+        <div ng-if="product.quantityInStock < 100" class="price_box position-relative">Liên hệ</div>
+        <div ng-if="product.quantityInStock >= 100" class="price_box position-relative">
+            <div ng-if="product.price<=0" class="price">Liên hệ</div>
+            <div ng-if="product.price>0" class="price">{{product.price - product.price*product.sale/100 | currency: "" : 0 }}đ</div>
+            <div ng-if="product.sale" class="compare_price">-{{product.sale}}%</div>
+        </div>
+        <div class="flashsale_bottom position-absolute">
+            <div ng-if="product.quantityInStock < 100" class="flashsale_label">⚡ Sắp hết hàng</div>
+            <div ng-if="product.quantityInStock >= 100 && product.sale" class="flashsale_label">
+                Đã bán
+                <div class="flashsale_sold_qty fw_500">{{product.sold}}</div>
+            </div>
+        </div>
+    </div>
+</form>
