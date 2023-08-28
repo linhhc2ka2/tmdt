@@ -1,7 +1,7 @@
 # railway.yaml
 
 # Cấu hình dự án
-name: my-spring-boot-app
+name: tmdt
 env: nodejs
 public: ./target
 install:
@@ -24,10 +24,13 @@ envs:
 static:
     - /css
     - /js
+    - /images
+    - /lib
 
 # Cấu hình đường dẫn tới các template Thymeleaf
 templates:
-    - /templates
+    - /templates/layouts
+    - /templates/pages
 
 # Cấu hình cache và HTTP
 cacheControl:
