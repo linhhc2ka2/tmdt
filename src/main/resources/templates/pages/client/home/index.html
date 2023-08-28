@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html
     xmlns:th="http://www.thymeleaf.org"
-    th:replace="~{/layouts/client/layout :: main-fragment(
+    th:replace="/layouts/client/layout :: main-fragment(
         ~{::title}, 
         ~{:: #main-content}, 
         ~{:: #static-resources-css},
         ~{:: #static-resources-js}
-    )}"
+    )"
 >
     <head>
         <title>Thương mại điện tử</title>
@@ -33,7 +33,7 @@
                                             ng-repeat="slide in listSlides"
                                             class="swiper-slide clearfix"
                                         >
-                                            <picture class="aspect d-block position-ralative">
+                                            <div class="aspect d-block position-ralative">
                                                 <img
                                                     ng-src="/images/client/slides/{{slide.image}}"
                                                     alt="{{slide.image}}"
@@ -41,7 +41,7 @@
                                                     height="330"
                                                     class="position-absolute"
                                                 />
-                                            </picture>
+                                            </div>
                                         </a>
                                     </div>
                                     <div class="swiper-pagination"></div>
