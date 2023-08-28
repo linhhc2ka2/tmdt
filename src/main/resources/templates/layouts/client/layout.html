@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" th:fragment="dynamic(title, section, css, js)">
+<html xmlns:th="http://www.thymeleaf.org" th:fragment="main-fragment(title, content, ortherCss, ortherJs)">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -31,13 +31,14 @@
         <link rel="stylesheet" th:href="@{/css/client/index.css}" />
         <link rel="stylesheet" th:href="@{/css/client/header.css}" />
         <link rel="stylesheet" th:href="@{/css/client/footer.css}" />
-        <link rel="stylesheet" th:href="${css}" />
+        <!-- Other css source files -->
+        <th:block th:replace="${ortherCss} ?: ~{}"></th:block>
     </head>
     <body ng-app="app-client" ng-controller="wrapper-ctrl">
         <!-- ================================ -->
         <div th:replace="/layouts/client/components/header"></div>
 
-        <div th:replace="${section}"></div>
+        <div th:replace="${content}"></div>
 
         <div th:replace="/layouts/client/components/footer"></div>
         <!-- ================================ -->
@@ -56,6 +57,7 @@
 
         <!-- JS -->
         <script th:src="@{/js/client/index.js}"></script>
-        <script th:src="${js}"></script>
+        <!-- Other js source files -->
+        <th:block th:replace="${ortherJs} ?: ~{}"></th:block>
     </body>
 </html>

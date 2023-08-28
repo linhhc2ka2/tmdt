@@ -1,11 +1,21 @@
 <!DOCTYPE html>
 <html
     xmlns:th="http://www.thymeleaf.org"
-    th:replace="~{/layouts/client/layout :: dynamic('Thương mại điện tử', ~{::div}, 
-    '/css/client/home/index.css', '/js/client/home/index.js')}"
+    th:replace="~{/layouts/client/layout :: main-fragment(
+        ~{::title}, 
+        ~{:: #main-content}, 
+        ~{:: #static-resources-css},
+        ~{:: #static-resources-js}
+    )}"
 >
-    <div th:with="section='::div', css='/css/client/home/index.css', js='/js/client/home/index.js'">
-        <div ng-controller="home-page-ctrl">
+    <head>
+        <title>Thương mại điện tử</title>
+        <th:block id="static-resources-css">
+            <link rel="stylesheet" th:href="@{/css/client/home/index.css}" />
+        </th:block>
+    </head>
+    <body>
+        <div id="main-content" ng-controller="home-page-ctrl">
             <!-- == First ========================== -->
             <section class="container section_first">
                 <div class="row">
@@ -192,5 +202,10 @@
                 </div>
             </section>
         </div>
-    </div>
+
+        <!-- ================================ -->
+        <th:block id="static-resources-js">
+            <script th:src="@{/js/client/home/index.js}"></script>
+        </th:block>
+    </body>
 </html>
