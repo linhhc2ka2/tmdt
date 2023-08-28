@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html
     xmlns:th="http://www.thymeleaf.org"
-    th:replace="/layouts/client/layout.html :: main-fragment(
+    th:replace="~{/layouts/layout :: main-fragment(
         ~{::title}, 
         ~{:: #main-content}, 
         ~{:: #static-resources-css},
         ~{:: #static-resources-js}
-    )"
+        )}"
 >
     <head>
         <title>Thương mại điện tử</title>
