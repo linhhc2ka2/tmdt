@@ -29,7 +29,7 @@ static:
 
 # Cấu hình đường dẫn tới các template Thymeleaf
 templates:
-    - /templates/pages/client/
+    - classpath:/templates/
 
 # Cấu hình cache và HTTP
 cacheControl:
