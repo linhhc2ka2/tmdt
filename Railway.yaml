@@ -1,5 +1,36 @@
-name: my-thymeleaf-app
-env: jvm
-commands:
-    - ./mvnw clean install
-    - ./mvnw spring-boot:run
+# railway.yaml
+
+# Cấu hình dự án
+name: my-spring-boot-app
+env: nodejs
+public: ./target
+install:
+    - npm install
+build: npm run build
+plugins:
+    - name: railway-static
+
+# Định nghĩa build command cho Spring Boot
+buildCommand: ./mvnw clean package
+
+# Đường dẫn tới tệp JAR sau khi build
+command: java -jar target/tmdt-0.0.1-SNAPSHOT.jar
+
+# Cấu hình môi trường cho Spring Boot
+envs:
+    PORT: 3000 # Cổng mà ứng dụng sẽ lắng nghe
+
+# Cấu hình đường dẫn tới các tệp tĩnh (CSS, JS, v.v.)
+static:
+    - /css
+    - /js
+
+# Cấu hình đường dẫn tới các template Thymeleaf
+templates:
+    - /templates
+
+# Cấu hình cache và HTTP
+cacheControl:
+    '/css': 'max-age=31536000'
+    '/js': 'max-age=31536000'
+    '/templates': 'max-age=0, no-cache'
