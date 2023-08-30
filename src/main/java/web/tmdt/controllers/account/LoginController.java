@@ -25,17 +25,21 @@ public class LoginController {
     @Autowired
     MailConfig mailConfig;
 
+    private String urlLogin = "redirect:/account/login";
+
     @GetMapping(value = "/login")
     public String viewLoginPage(Model model) {
         model.addAttribute("user", new User());
         model.addAttribute("userNameCurrent", sessionConfig.get("userName"));
 
-        return "pages/login/index";
+        return "redirect:/client/pages/login/index.html";
     }
 
     @PostMapping(value = "/login")
     public String handleLogin(Model model, @RequestParam("email") String email,
             @RequestParam("password") String password) {
+        System.out.println("Email: " + email + "========================");
+        System.out.println("Password: " + password + "========================");
         User user = userRepository.findByUserEmail(email);
         model.addAttribute("user", user);
 
@@ -43,10 +47,10 @@ public class LoginController {
             sessionConfig.set("userName", user.getFirstName());
             cookieConfig.add("email", email, true ? 24 : 0);
 
-            return "redirect:/homepage";
+            return "redirect:/";
         } else {
             model.addAttribute("error", "Đăng nhập thất bại *");
-            return "pages/login/index";
+            return this.urlLogin;
         }
     }
 
@@ -54,7 +58,7 @@ public class LoginController {
     public String handleLogout(Model model) {
         sessionConfig.invalidate();
 
-        return "redirect:/account/login";
+        return this.urlLogin;
     }
 
     @PostMapping(value = "/forgot-password")
@@ -71,7 +75,7 @@ public class LoginController {
             }
         }
 
-        return "redirect:/account/login";
+        return this.urlLogin;
     }
 
 }

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <base href="/" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Trang chủ</title>
+
+        <!-- Font Roboto -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap"
+            rel="stylesheet"
+        />
+
+        <!-- Normalize CSS -->
+        <link rel="stylesheet" href="/lib/normalize.css" />
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="/lib/bootstrap.min.css" />
+
+        <!-- Fontawesome -->
+        <link rel="stylesheet" href="/lib/fontawesome/css/fontawesome.css" />
+        <link rel="stylesheet" href="/lib/fontawesome/css/brands.css" />
+        <link rel="stylesheet" href="/lib/fontawesome/css/solid.css" />
+
+        <!-- Swiper CSS -->
+        <link rel="stylesheet" href="/lib/swiper-bundle.min.css" />
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="/css/client/index.css" />
+        <link rel="stylesheet" href="/css/client/header.css" />
+        <link rel="stylesheet" href="/css/client/footer.css" />
+        <!-- ================================ -->
+        <link rel="stylesheet" href="/css/client/home/index.css" />
+        <link rel="stylesheet" href="/css/account/index.css" />
+    </head>
+    <body ng-app="app-client" ng-controller="wrapper-ctrl">
+        <!-- ================================ -->
+        <div ng-include="'/client/components/header.html'"></div>
+        <ng-view></ng-view>
+        <div ng-include="'/client/components/footer.html'"></div>
+        <!-- ================================ -->
+
+        <!-- Angular JS -->
+        <script src="/lib/angular.min.js"></script>
+
+        <!-- Angular Route -->
+        <script src="/lib/angular-route.js"></script>
+
+        <!-- Bootstrap JS -->
+        <script src="/lib/bootstrap.bundle.min.js"></script>
+
+        <!-- Swiper JS -->
+        <script src="/lib/swiper-bundle.min.js"></script>
+
+        <!-- Dir pagination -->
+        <script src="/lib/dirPagination.js"></script>
+
+        <!-- JS -->
+        <script src="/js/client/index.js"></script>
+        <!-- ================================ -->
+        <script src="/js/client/home/index.js"></script>
+        <script src="/js/account/index.js"></script>
+    </body>
+</html>

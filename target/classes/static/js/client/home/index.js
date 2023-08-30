@@ -95,7 +95,9 @@ const countdownInterval = setInterval(function () {
     const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
     const countdownElement = document.getElementById('countdown');
-    countdownElement.innerHTML = `<span>${hours}</span>:<span>${minutes}</span>:<span>${seconds}</span>`;
+    if (countdownElement) {
+        countdownElement.innerHTML = `<span>${hours}</span>:<span>${minutes}</span>:<span>${seconds}</span>`;
+    }
 
     // Khi thời gian kết thúc, xóa đồng hồ đếm ngược và thông báo
     if (timeLeft < 0) {

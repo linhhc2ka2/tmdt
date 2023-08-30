@@ -17,6 +17,6 @@ public class HomePageController {
     public String viewHomePage(Model model) {
         model.addAttribute("userNameCurrent", sessionConfig.get("userName"));
 
-        return "pages/client/home/index";
+        return "redirect:/client/layout.html";
     }
 }

@@ -1,7 +1,39 @@
 'use strict';
 
 // Code Angularjs
-const app = angular.module('app-client', ['angularUtils.directives.dirPagination']);
+const app = angular.module('app-client', ['angularUtils.directives.dirPagination', 'ngRoute']);
+
+// Routing
+app.config(function ($routeProvider, $locationProvider) {
+    $routeProvider
+        .when('/', {
+            title: 'Thương mại điện tử',
+            templateUrl: '/client/pages/home/index.html',
+            controller: 'home-page-ctrl',
+        })
+        .when('/account/login', {
+            title: 'Đăng nhập tài khoản',
+            templateUrl: '/client/pages/login/index.html',
+            controller: 'login-page-ctrl',
+        })
+        .otherwise({ redirectTo: '/' });
+
+    // Enable HTML5 mode
+    $locationProvider.html5Mode(true);
+});
+
+app.run([
+    '$rootScope',
+    '$route',
+    function ($rootScope, $route) {
+        $rootScope.$on('$routeChangeSuccess', function (newVal, oldVal) {
+            if (oldVal !== newVal) {
+                document.title = $route.current.title;
+                $rootScope.title = $route.current.title;
+            }
+        });
+    },
+]);
 
 app.controller('wrapper-ctrl', function ($scope, $http) {
     // == Header ================================================
@@ -12,9 +44,6 @@ app.controller('wrapper-ctrl', function ($scope, $http) {
         $http.get(`/api/categories/all`).then((result) => ($scope.listCategories = result.data));
     };
     $scope.loadListCategories();
-
-    // Get title
-    $scope.titlePage = document.title;
 
     // Get param category in url ==> list product
     const urlSearchParams = new URLSearchParams(window.location.search);
@@ -35,13 +64,10 @@ app.service('shareService', function () {
 // Code Javascript
 
 // Button back to top
-const buttonBackToTop = document.getElementById('backtotop');
 window.addEventListener('scroll', () => {
-    // Lấy vị trí hiện tại của cuộn trang
-    const scrollPosition = window.scrollY;
+    const buttonBackToTop = document.getElementById('backtotop');
 
-    // Nếu vị trí cuộn trang đạt tới 200px, thêm class vào thẻ button
-    if (scrollPosition >= 200) {
+    if (window.scrollY >= 200) {
         buttonBackToTop.classList.add('show');
     } else {
         buttonBackToTop.classList.remove('show');
